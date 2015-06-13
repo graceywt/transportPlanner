@@ -1,0 +1,19 @@
+create database login;
+use login; 
+
+CREATE TABLE user
+(fname varchar(50) not null,
+lname varchar(50) not null,
+_email varchar(50) not null,
+password varchar(50) not null, 
+phoneNo varchar(50) not null,
+primary key(email));
+
+insert into user
+values
+("Angel", "Wen", "Wenangel@angel.com", "iambest1", "012-339 4497"),
+("Siti", "Nurhaliza", "siti@nur.com", "betterthanu8", "012-567 8901"),
+("Skantha", "Rueben", "srueben@ru.com", "ruebenskn9", "013-612 8753"),
+("John", "Smith", "john@smith.com", "j0hn1n", "014-854 2175");
+
+select * from user;
