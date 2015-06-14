@@ -33,7 +33,14 @@ public class SearchActivity  extends AsyncTask<String,Void,String>{
     protected void onPreExecute(){
 
     }
+	mfast = (Button) findViewById(R.id.fast);
+	mfast.setText("Fastest");
+                    mfast.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
+                                   
+}
     @Override
     protected String doInBackground(String... arg0) {
 
@@ -52,19 +59,63 @@ public class SearchActivity  extends AsyncTask<String,Void,String>{
                 String line="&/n";
 
                 while ((line = in.readLine()) != null) {
-                    sb.append(line);
+                    
                     if (BRT.equals(sourceField) && BRT.equals(destinationField) || KTM.equals(sourceField) && KTM.equals(destinationField) || LRT.equals(sourceField) && LRT.equals(destinationField)){
-                        System.out.println("Source & Distance: /s,/s"+sourceField,+destinationField);
+                        routes.append("Source & Distance: /s,/s"+sourceField,+destinationField);
                         int[] time = new int[10];
-                        int[] Price = new int[10];
+                        
                         a=0;
-                        b=0;
+                        
                         while ((time[a]!=null){
                             if (time[a] < time[a + 1]) {
                                time.append(time[a]);
                                 time[a]++;
                             }
                         }
+			distance = (TextView) findViewById(R.id.distance);
+                        price = (TextView) findViewById(R.id.price);
+                        distance.append(distance);
+                        price.append(price);
+                        
+                    }
+                    else{
+                            view.append("Source and/or destination is not found!");
+                    }
+
+                    Button mcheap = (Button) findViewById(R.id.cheap);
+		    mcheap.setText("Cheapest");
+                    mcheap.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                                    
+			}
+			@Override
+    protected String doInBackground(String... arg0) {
+
+
+            try{
+                String source = (String)arg0[0];
+                String destination = (String)arg0[1];
+
+
+                StringBuffer sb;
+                InputStream iS = resources.getAssets().open("option name=\"ASSETS_FOLDER_RELATIVE_PATH\" value=\"/src/main/assets\"");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(iS)); {
+                }
+
+                sb = new StringBuffer(" ");
+                String line="&/n";
+
+                while ((line = in.readLine()) != null) {
+                    
+                    if (BRT.equals(sourceField) && BRT.equals(destinationField) || KTM.equals(sourceField) && KTM.equals(destinationField) || LRT.equals(sourceField) && LRT.equals(destinationField)){
+                        routes.append("Source & Distance: /s,/s"+sourceField,+destinationField);
+                        
+                        int[] Price = new int[10];
+                       
+                        b=0;
+                        
                         while (Price[b]!=null) {
                                 if (Price[b]<Price[b+1]){
                                     price.append(Price[b]);
@@ -72,62 +123,81 @@ public class SearchActivity  extends AsyncTask<String,Void,String>{
                                 }
 
                         }
+			distance = (TextView) findViewById(R.id.distance);
+			time = (TextView) findViewById(R.id.time);
+                        distance.append(distance);
                     }
                     else{
-                            System.out.println("Source and/or destination is not found!");
+                            view.append("Source and/or destination is not found!");
                     }
 
-                    Button mfast = (Button) findViewById(R.id.fast);
-                    mfast.setOnClickListener(new View.OnClickListener() {
+			}
+
+		Button meco = (Button) findViewById(R.id.eco);
+		meco.setText("Eco-friendly");
+                    meco.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 
-                                    selectFast();
+                                    
+			}
+			@Override
+    protected String doInBackground(String... arg0) {
 
 
+            try{
+                String source = (String)arg0[0];
+                String destination = (String)arg0[1];
 
-                                    selectCheap();
 
-                                    selectEco();
+                StringBuffer sb;
+                InputStream iS = resources.getAssets().open("option name=\"ASSETS_FOLDER_RELATIVE_PATH\" value=\"/src/main/assets\"");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(iS)); {
+                }
+
+                sb = new StringBuffer(" ");
+                String line="&/n";
+
+                while ((line = in.readLine()) != null) {//looks through BRT, KTM & lRT
+                    
+                    if (BRT.equals(sourceField) && BRT.equals(destinationField) || KTM.equals(sourceField) && KTM.equals(destinationField) || LRT.equals(sourceField) && LRT.equals(destinationField)){
+                        routes.append("Source & Distance: /s,/s"+sourceField,+destinationField);
+                        
+                        int[] route = new int[15];
+                       
+                        c=0;
+                        
+                        while (route[c]!=null) {
+                                if (route[c]<route[c+1]){
+                                    price.append(route[c]);
+                                    route[c]++;
+                                }
+
+                        }
+			
+                            distance = (TextView) findViewById(R.id.distance);
+                            price = (TextView) findViewById(R.id.price);
+			    time = (TextView) findViewById(R.id.time);
+                            distance.append(distance);
+                            price.append(price);
+			    time.append(time);
+                    }
+                    else{
+                            view.append("Source and/or destination is not found!");
+                    }
+
+			}
+
+                                    
+
+                                    
 
                         }
 
                         );
 
 
-                        public void selectFast() {
-                            distance = (TextView) findViewById(R.id.distance);
-                            price = (TextView) findViewById(R.id.price);
-                            System.out.println("Distance: " + distance);
-                            System.out.println("Price: " + price);
-                            ; // how to search the distance & price of the fastest route from time?
-
-                        }
-
-                        public void selectCheap() {
-
-                        }
-
-                        else if(arg0==cheap)
-
-                        {
-                            transport = (TextView) findViewById(R.id.transport);
-                            details = (TextView) findViewById(R.id.details);
-                            price = (TextView) findViewById(R.id.price);
-                            time1 = (TextView) findViewById(R.id.time1);
-                        }
-
-                        else if(arg0==green)
-
-                        {
-                            transport = (TextView) findViewById(R.id.transport);
-                            details = (TextView) findViewById(R.id.details);
-                            price = (TextView) findViewById(R.id.price);
-                            time1 = (TextView) findViewById(R.id.time1);
-
-                        }
-                    }
-
+                       
                 }
                 break;
                 in.close();
