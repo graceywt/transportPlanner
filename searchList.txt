@@ -1,0 +1,18 @@
+BRT	time	Distance	Price
+B1/K1	4	0		0
+B2	4	4		0.8
+B3	4	2.8		0.8
+B4	4	0.8		0.8
+Cycle	8	0.8		0.8
+
+KTM	time	Distance	Price
+B1/K1	11	0		0
+K2	10	15.8		1.5
+K3/L1	7	4.6		1.5
+Cycle	14	4.6		1.5
+
+LRT	time	Distance	Price
+K3/L1	5	0		0
+L2	5	11		2
+L3	5	24		2
+Cycle 	10	24		2
